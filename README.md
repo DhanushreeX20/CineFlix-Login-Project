@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 **🎬 Netflix Login Clone — Full-Stack Project**
 
 A full-stack web application that replicates Netflix’s login page and authentication flow using React, Tailwind CSS, and Node.js with Express.
@@ -95,3 +96,6 @@ Password: 1234
 Any other login will show an error.
 ---
 Hope You liked it ! thanks for visiting 
+=======
+# CineFlix-Login-Project
+>>>>>>> 5d9e0ef1a639041c5e0a776b0c6bd5da3073b35e
