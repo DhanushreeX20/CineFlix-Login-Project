@@ -40,26 +40,27 @@ export default function Login() {
     setErrors({});
 
     // Backend validation
-axios.post("/api/index.js", {
-  email,
-  password
-})
-
-      .then((data) => {
-        if (data.data === true) {
-          navigate("/Dashboard");
-        } else {
-          setErrors({
-            email: "Invalid email or password.",
-            password: "Invalid email or password."
-          });
-        }
-      })
-      .catch(() => {
+ axios
+    .post("http://localhost:5000/Login", {
+      email,
+      password,
+    })
+    .then((res) => {
+      if (res.data.success === true) {
+        navigate("/Dashboard");
+      } else {
         setErrors({
-          email: "Server error. Try again later.",
+          email: "Invalid email or password.",
+          password: "Invalid email or password.",
         });
+      }
+    })
+    .catch(() => {
+      setErrors({
+        email: "Server error. Try again later.",
       });
+    });
+
   }
 
 
@@ -259,4 +260,5 @@ mb-12 px-6 md:px-20 lg:ml-80">
     </>
   );
 }
+
 
