@@ -40,7 +40,7 @@ export default function Login() {
     setErrors({});
 
     // Backend validation
-axios.post("/api/login", {
+axios.post("/api/index.js", {
   email,
   password
 })
