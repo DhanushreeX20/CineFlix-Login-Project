@@ -8,7 +8,7 @@ app.use(express.json());
 
 const USER = {
   email: "check@here.com",
-  password: "1010",
+  password: "1010"
 };
 
 app.get("/login", function (req, res) {
@@ -28,6 +28,9 @@ app.get("/login", function (req, res) {
   }
 });
 
-app.listen(5000, function () {
-  console.log("Server started...");
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log("Server started on port", PORT);
 });
+
