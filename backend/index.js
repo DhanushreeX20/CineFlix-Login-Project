@@ -2,7 +2,17 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 
-app.use(cors());
+
+app.use(cors({
+  origin: "https://cineflix-login-clone.vercel.app",
+  methods: ["GET", "POST"],
+  credentials: true
+}));
+
+
+
+
+
 
 app.use(express.json());
 
@@ -28,7 +38,10 @@ app.get("/login", function (req, res) {
   }
 });
 
-app.listen(5000, function () {
-  console.log("Server started...");
-}
-);
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log("Server running on port " + PORT);
+});
+
+
