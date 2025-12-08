@@ -36,28 +36,33 @@ export default function Login() {
       return;
     }
 
-    // Clear frontend errors
+  
     setErrors({});
 
-    // Backend validation
-    axios
-      .get(`http://localhost:5000/login?email=${email}&password=${password}`)
-      .then((data) => {
-        if (data.data === true) {
-          navigate("/Dashboard");
-        } else {
-          setErrors({
-            email: "Invalid email or password.",
-            password: "Invalid email or password."
-          });
-        }
-      })
-      .catch(() => {
-        setErrors({
-          email: "Server error. Try again later.",
-        });
+
+axios
+  .get(
+    `https://cineflix-login-project.onrender.com/login?email=${email}&password=${password}`
+  )
+  .then((response) => {
+    const data = response.data;
+
+    if (data.success) {
+      navigate("/Dashboard");
+    } else {
+      setErrors({
+        email: "Invalid email or password.",
+        password: "Invalid email or password.",
       });
-  }
+    }
+  })
+  .catch(() => {
+    setErrors({
+      email: "Server error. Try again later.",
+      password: "Server error. Try again later.",
+    });
+  });
+};
 
 
   return (
@@ -255,5 +260,4 @@ mb-12 px-6 md:px-20 lg:ml-80">
       </div>
     </>
   );
-}
-
+  }
