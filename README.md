@@ -1,5 +1,5 @@
 
-**🎬 Netflix Login Clone — Full-Stack Project**
+**🎬 Cineflix Login Clone — Full-Stack Project**
 
 A full-stack web application that replicates Netflix’s login page and authentication flow using React, Tailwind CSS, and Node.js with Express.
 This project demonstrates frontend design, form validation, API integration, and basic backend authentication handling.
