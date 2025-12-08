@@ -40,8 +40,11 @@ export default function Login() {
     setErrors({});
 
     // Backend validation
-    axios
-      .get(`http://localhost:5000/login?email=${email}&password=${password}`)
+axios.post("/api/login", {
+  email,
+  password
+})
+
       .then((data) => {
         if (data.data === true) {
           navigate("/Dashboard");
