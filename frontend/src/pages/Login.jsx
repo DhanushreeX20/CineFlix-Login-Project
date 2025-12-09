@@ -41,29 +41,26 @@ export default function Login() {
 
     // Backend validation
  axios
-    .post("http://localhost:5000/Login", {
-      email,
-      password,
-    })
-    .then((res) => {
-      if (res.data.success === true) {
-        navigate("/Dashboard");
-      } else {
-        setErrors({
-          email: "Invalid email or password.",
-          password: "Invalid email or password.",
-        });
-      }
-    })
-    .catch(() => {
+  .post("https://cineflix-backend-297h.onrender.com/Login",{
+    email,
+    password,
+  })
+  .then((res) => {
+    if (res.data.success === true) {
+      navigate("/Dashboard");
+    } else {
       setErrors({
-        email: "Server error. Try again later.",
+        email: "Invalid email or password.",
+        password: "Invalid email or password.",
       });
+    }
+  })
+  .catch(() => {
+    setErrors({
+      email: "Server error. Try again later.",
     });
-
+  });
   }
-
-
   return (
     <>
       {/* Header/logo above gradient (z-20) */}
